@@ -31,13 +31,13 @@ Production Dependencies
 Install Express, the web framework
 
 ```bash
-npm install express
+npm install express cors dotenv
 ```
 
 Install TypeScript, the type definitions for Express and Node.js, and `tsx` for running the server without a pre-compiled step.
 
 ```bash
-npm install -D typescript tsx @types/node ts-node @types/express nodemon
+npm install -D typescript tsx @types/node ts-node @types/express nodemon @types/cors
 ```
 
 ### 3. Configure TypeScript
@@ -79,11 +79,17 @@ Create a main server file, for example `server.ts`.
 Add the following basic Express server code to server.ts:
 
 ```typescript
+import "dotenv/config";
 import express, { Request, Response } from 'express';
+import cors from "cors";
 
 const app = express();
 
-const port = 3000;
+// Middleware
+app.use(cors())
+app.use(express.json());
+
+const port = process.env.PORT || 3000;
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Server is Live!');
