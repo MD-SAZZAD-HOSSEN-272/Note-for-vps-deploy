@@ -1,4 +1,9 @@
 
+
+Tutorial video lik: https://youtu.be/o2J_jdKBLI4?si=2nB-eN4LYpBVLS3K
+
+
+
 ## Deploying MERN Stack Project on Hostinger VPS
 
 
